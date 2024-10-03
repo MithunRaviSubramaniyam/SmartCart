@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            justify-content: center; /* Center the container horizontally */
+            align-items: center; /* Center the container vertically */
+            background-color: #282a36; /* Blue background */
+        }
+
+        .container {
+            background-color: white;
+            width: 400px; /* Fixed width for the main content */
+            height: 90vh; /* Height for the main content */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            overflow: hidden; /* Hide overflow */
+        }
+
+        .item-list {
+            padding: 10px;
+            border: 2px solid #0059b3; /* Border around the list of items */
+            border-radius: 10px; /* Round corners for the box */
+            margin: 20px; /* Space around the box */
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            flex: 1; /* Allow the item list to grow */
+            overflow-y: auto; /* Enable scrolling if the list is too long */
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Center vertically */
+            margin: 5px 0; /* Consistent margin for items */
+            padding: 10px; /* Consistent padding for items */
+            border-bottom: 1px solid #ccc;
+        }
+
+        .order-item img {
+            width: 80px; /* Width for the images */
+            height: 80px; /* Height for the images */
+            margin-right: 10px; /* Space between the image and the item name */
+        }
+
+        .total-price {
+            font-weight: bold;
+            margin: 20px; /* Consistent margin for total price */
+            text-align: right;
+            font-size: 20px; /* Font size for total price */
+            color: white; /* White text for contrast */
+            background-color: #0059b3; /* Primary blue background */
+            padding: 10px; /* Padding around the text */
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Subtle text shadow for depth */
+            transition: transform 0.2s ease-in-out; /* Smooth transform transition */
+            animation: pulse 2s infinite; /* Add pulse animation */
+        }
+
+        /* Hover effect for total price */
+        .total-price:hover {
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        /* Pulse animation */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+            }
+            100% {
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            width: 100%; /* Full width of the container */
+            display: flex;
+            justify-content: space-around;
+            background-color: #fff;
+            padding: 15px 0;
+            border-top: 1px solid #ccc;
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            color: #555;
+            font-size: 16px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nav-bar a i {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: #0059b3; /* Primary blue for icons */
+        }
+
+        .nav-bar a.active {
+            color: #0059b3; /* Highlight active link in primary blue */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item-list">
+            <!-- Order items with images -->
+            <div class="order-item">
+                <img src="chocolate.png" alt="Chocolate">
+                <span>Chocolate</span>
+                <span>₹50</span>
+            </div>
+            <div class="order-item">
+                <img src="apple.png" alt="Apple">
+                <span>Apple</span>
+                <span>₹30</span>
+            </div>
+            <div class="order-item">
+                <img src="lays.png" alt="Lays">
+                <span>Lays</span>
+                <span>₹20</span>
+            </div>
+            <div class="order-item">
+                <img src="cocacola.png" alt="Coca-Cola">
+                <span>Coca-Cola</span>
+                <span>₹60</span>
+            </div>
+            <div class="order-item">
+                <img src="grapes.png" alt="Grapes">
+                <span>Grapes</span>
+                <span>₹40</span>
+            </div>
+            <div class="order-item">
+                <img src="container.png" alt="Containers"> <!-- Added containers.png here -->
+                <span>Containers</span>
+                <span>₹100</span> <!-- Price for containers -->
+            </div>
+        </div>
+        
+        <div class="total-price">
+            Total: ₹300 <!-- Updated total price to include containers -->
+        </div>
+
+        <!-- Navigation Bar -->
+        <div class="nav-bar">
+            <a href="you.html">
+                <i class="fas fa-user"></i>
+                You
+            </a>
+            <a href="#">
+                <i class="fas fa-compass"></i>
+                Discover
+            </a>
+            <a href="next-page.html">
+                <i class="fas fa-qrcode"></i>
+                Scan
+            </a>
+            <a href="#" class="active">
+                <i class="fas fa-receipt"></i>
+                Orders
+            </a>
+            <a href="#">
+                <i class="fas fa-ellipsis-h"></i>
+                More
+            </a>
+        </div>
+    </div>
+
+    <!-- Load Font Awesome Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</body>
+</html>
